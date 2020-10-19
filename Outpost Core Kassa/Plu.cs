@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Outpost_Core_Kassa {
 	public class Plu {
-		public int id;
-		public string sku, barcode, name;
-		public decimal price;
-		public byte vat;
+		public int Id;
+		public string Sku, Barcode, Description;
+		public decimal UnitPrice;
+		public byte Vat;
 
-		public Plu(int i, string s, string b, string n, decimal p, byte v) {
-			id = i;
-			sku = s;
-			barcode = b;
-			name = n;
-			price = p;
-			vat = v;
+		public Plu(int id, string sku, string barcode, string description, decimal unit_price, byte vat) {
+			Id          = id;
+			Sku         = sku;
+			Barcode     = barcode;
+			Description = description;
+			UnitPrice   = unit_price;
+			Vat         = vat;
 		}
 	}
 }

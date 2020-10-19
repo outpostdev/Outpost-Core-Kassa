@@ -24,29 +24,26 @@
 		/// </summary>
 		private void InitializeComponent() {
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Test", "placeholder_box.png");
-			System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Hello", "placeholder_box.png");
-			System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("World", "placeholder_box.png");
+			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Test", "placeholder_box.png");
+			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Hello", "placeholder_box.png");
+			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("World", "placeholder_box.png");
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.button2 = new System.Windows.Forms.Button();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.SKU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Amount = new System.Windows.Forms.DataGridViewButtonColumn();
+			this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Total_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.VAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.splitContainer2 = new System.Windows.Forms.SplitContainer();
 			this.button1 = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.listView1 = new System.Windows.Forms.ListView();
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -70,81 +67,99 @@
 			// 
 			// splitContainer1.Panel1
 			// 
-			this.splitContainer1.Panel1.Controls.Add(this.button2);
 			this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
 			// 
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
 			this.splitContainer1.Size = new System.Drawing.Size(1184, 860);
-			this.splitContainer1.SplitterDistance = 856;
+			this.splitContainer1.SplitterDistance = 882;
 			this.splitContainer1.TabIndex = 2;
 			this.splitContainer1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainer1_MouseDown);
 			this.splitContainer1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitContainer1_MouseMove);
 			this.splitContainer1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitContainer1_MouseUp);
 			// 
-			// button2
-			// 
-			this.button2.FlatAppearance.BorderSize = 10;
-			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.Location = new System.Drawing.Point(722, 763);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(131, 94);
-			this.button2.TabIndex = 0;
-			this.button2.Text = "Test";
-			this.button2.UseVisualStyleBackColor = false;
-			// 
 			// dataGridView1
 			// 
 			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
 			this.dataGridView1.AllowUserToResizeColumns = false;
 			this.dataGridView1.AllowUserToResizeRows = false;
-			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-			this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ControlDark;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7});
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.SKU,
+            this.Barcode,
+            this.Description,
+            this.Amount,
+            this.Unit_Price,
+            this.Total_Price,
+            this.VAT});
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.EnableHeadersVisualStyles = false;
-			this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlLightLight;
 			this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-			this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
+			this.dataGridView1.MultiSelect = false;
 			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.RowHeadersVisible = false;
-			this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-			this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
-			this.dataGridView1.Size = new System.Drawing.Size(856, 860);
+			this.dataGridView1.RowTemplate.ReadOnly = true;
+			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dataGridView1.Size = new System.Drawing.Size(882, 860);
 			this.dataGridView1.TabIndex = 0;
+			// 
+			// SKU
+			// 
+			this.SKU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.SKU.HeaderText = "SKU";
+			this.SKU.Name = "SKU";
+			this.SKU.ReadOnly = true;
+			this.SKU.Width = 54;
+			// 
+			// Barcode
+			// 
+			this.Barcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Barcode.HeaderText = "Barcode";
+			this.Barcode.Name = "Barcode";
+			this.Barcode.ReadOnly = true;
+			this.Barcode.Width = 72;
+			// 
+			// Description
+			// 
+			this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.Description.HeaderText = "Description";
+			this.Description.Name = "Description";
+			this.Description.ReadOnly = true;
+			// 
+			// Amount
+			// 
+			this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Amount.HeaderText = "Amount";
+			this.Amount.Name = "Amount";
+			this.Amount.ReadOnly = true;
+			this.Amount.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.Amount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.Amount.Width = 68;
+			// 
+			// Unit_Price
+			// 
+			this.Unit_Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Unit_Price.HeaderText = "Unit Price";
+			this.Unit_Price.Name = "Unit_Price";
+			this.Unit_Price.ReadOnly = true;
+			this.Unit_Price.Width = 78;
+			// 
+			// Total_Price
+			// 
+			this.Total_Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.Total_Price.HeaderText = "Total Price";
+			this.Total_Price.Name = "Total_Price";
+			this.Total_Price.ReadOnly = true;
+			this.Total_Price.Width = 83;
+			// 
+			// VAT
+			// 
+			this.VAT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.VAT.HeaderText = "VAT";
+			this.VAT.Name = "VAT";
+			this.VAT.ReadOnly = true;
+			this.VAT.Width = 53;
 			// 
 			// splitContainer2
 			// 
@@ -168,7 +183,7 @@
 			// 
 			this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.splitContainer2.Panel2.Controls.Add(this.listView1);
-			this.splitContainer2.Size = new System.Drawing.Size(324, 860);
+			this.splitContainer2.Size = new System.Drawing.Size(298, 860);
 			this.splitContainer2.SplitterDistance = 58;
 			this.splitContainer2.TabIndex = 0;
 			// 
@@ -180,7 +195,7 @@
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
-			this.button1.Location = new System.Drawing.Point(226, 0);
+			this.button1.Location = new System.Drawing.Point(200, 0);
 			this.button1.Margin = new System.Windows.Forms.Padding(10);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(98, 31);
@@ -224,14 +239,14 @@
 			this.listView1.ForeColor = System.Drawing.SystemColors.HighlightText;
 			this.listView1.HideSelection = false;
 			this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4,
-            listViewItem5,
-            listViewItem6});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3});
 			this.listView1.LargeImageList = this.imageList1;
-			this.listView1.Location = new System.Drawing.Point(0, 0);
+			this.listView1.Location = new System.Drawing.Point(-1, 0);
 			this.listView1.Margin = new System.Windows.Forms.Padding(0);
 			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(324, 621);
+			this.listView1.Size = new System.Drawing.Size(298, 798);
 			this.listView1.SmallImageList = this.imageList1;
 			this.listView1.TabIndex = 1;
 			this.listView1.UseCompatibleStateImageBehavior = false;
@@ -243,47 +258,10 @@
 			this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
 			this.imageList1.Images.SetKeyName(0, "placeholder_box.png");
 			// 
-			// Column1
+			// notifyIcon1
 			// 
-			this.Column1.HeaderText = "SKU";
-			this.Column1.Name = "Column1";
-			this.Column1.Width = 65;
-			// 
-			// Column2
-			// 
-			this.Column2.HeaderText = "Barcode";
-			this.Column2.Name = "Column2";
-			this.Column2.Width = 97;
-			// 
-			// Column3
-			// 
-			this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.Column3.HeaderText = "Product Name";
-			this.Column3.Name = "Column3";
-			// 
-			// Column4
-			// 
-			this.Column4.HeaderText = "Amount";
-			this.Column4.Name = "Column4";
-			this.Column4.Width = 96;
-			// 
-			// Column5
-			// 
-			this.Column5.HeaderText = "Unit Price";
-			this.Column5.Name = "Column5";
-			this.Column5.Width = 108;
-			// 
-			// Column6
-			// 
-			this.Column6.HeaderText = "Total Price";
-			this.Column6.Name = "Column6";
-			this.Column6.Width = 112;
-			// 
-			// Column7
-			// 
-			this.Column7.HeaderText = "VAT";
-			this.Column7.Name = "Column7";
-			this.Column7.Width = 63;
+			this.notifyIcon1.Text = "notifyIcon1";
+			this.notifyIcon1.Visible = true;
 			// 
 			// Form1
 			// 
@@ -313,17 +291,17 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.ListView listView1;
 		private System.Windows.Forms.ImageList imageList1;
 		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+		private System.Windows.Forms.DataGridViewTextBoxColumn SKU;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Barcode;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+		private System.Windows.Forms.DataGridViewButtonColumn Amount;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Unit_Price;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Total_Price;
+		private System.Windows.Forms.DataGridViewTextBoxColumn VAT;
+		private System.Windows.Forms.NotifyIcon notifyIcon1;
 	}
 }
 
