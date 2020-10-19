@@ -27,9 +27,6 @@ namespace Outpost_Core_Kassa {
 		public Form1() {
 			InitializeComponent();
 
-			//tabControl1.Padding = new Point(12, 4);
-			//tabControl1.HandleCreated += tabControl1_HandleCreated;
-
 			Debug.WriteLine("test_pos() commented out.");
 			
 			init_sql();
@@ -127,30 +124,46 @@ namespace Outpost_Core_Kassa {
 
 			Debug.WriteLine("Scan: {0}: " + l, t);
 
-			SqlCommand com = new SqlCommand(string.Format("select * from products " +
-				                                          "inner join sale_listings " +
-														  "on products.id=sale_listings.product_id " +
-														  "where (barcode = '{0}');", l), con);
+			try {
+				SqlCommand com = new SqlCommand(string.Format("select * from products " +
+															  "inner join sale_listings " +
+															  "on products.id = sale_listings.product_id " +
+															  "where (barcode = '{0}');", l), con);
 
-			List<Plu> plus = new List<Plu>();
-			using(SqlDataReader r = com.ExecuteReader()) {
-				while(r.Read()) {
-					plus.Add(new Plu((int)r[0], (string)r[1], (string)r[2], (string)r[3], (decimal)r[6], (byte)r[7]));
+				List<Plu> plus = new List<Plu>();
+				using(SqlDataReader r = com.ExecuteReader()) {
+					while(r.Read()) {
+						plus.Add(new Plu((int)r[0], (string)r[1], (string)r[2], (string)r[3], (decimal)r[6], (byte)r[7]));
+					}
+
+					foreach(Plu plu in plus) {
+						Debug.WriteLine(string.Format("{0}, {1}, {2}, {3}, {4}, {5}",
+													  plu.Id, plu.Sku, plu.Barcode, plu.Description, plu.UnitPrice, vat_decode(plu.Vat)));
+					}
 				}
 
-				foreach(Plu plu in plus) {
-					Debug.WriteLine(string.Format("{0}, {1}, {2}, {3}, {4}, {5}",
-						                          plu.id, plu.sku, plu.barcode, plu.name, plu.price, vat_decode(plu.vat)));
+				if(plus.Count == 0) {
+					MessageBox.Show(string.Format("The barcode \"{0}\" does not have an associated sale listing.\n" +
+												  "Please contact the cash register database maintainer to solve the problem.", l));
+				} else if(plus.Count > 1) {
+					// Allow user to pick specific product from list of matches in a dialog window.
+					ProductDiscrimination pd = new ProductDiscrimination(plus);
+
+					var result = pd.ShowDialog();
+					
+					if(result == DialogResult.OK) {
+						dataGridView1.Rows.Add(plus[pd.return_index].Sku, plus[pd.return_index].Barcode,
+						                       plus[pd.return_index].Description, 1, plus[pd.return_index].UnitPrice,
+											   plus[pd.return_index].UnitPrice, vat_decode(plus[pd.return_index].Vat));
+					}
+				} else {
+					// Automatically add the first and only match.
+					dataGridView1.Rows.Add(plus[0].Sku, plus[0].Barcode, plus[0].Description, 1,
+										   plus[0].UnitPrice, plus[0].UnitPrice, vat_decode(plus[0].Vat));
 				}
+			} catch {
+				MessageBox.Show("Failed to complete database query.\nPlease contact the cash register database maintainer to solve the problem.");
 			}
-
-			// TODO: Allow user to pick specific product from list of matches.
-			if(plus.Count > 1) {
-				Debug.WriteLine("This barcode is used by multiple products! Picking first match for now...");
-			}
-
-			dataGridView1.Rows.Add(plus[0].sku, plus[0].barcode, plus[0].name, 1,
-				                   plus[0].price, plus[0].price, vat_decode(plus[0].vat));
 
 			s.DataEventEnabled = true;
 		}
@@ -402,8 +415,23 @@ namespace Outpost_Core_Kassa {
 
 		}
 
+		private void dataGridView1_SelectionChanged(object sender, EventArgs e) {
+			dataGridView1.ClearSelection();
+		}
+
+		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e) {
+			if(e.ColumnIndex == dataGridView1.Columns["delete_column"].Index) {
+				dataGridView1.Rows.RemoveAt(e.RowIndex);
+			}
+		}
+
 		private void button1_Click(object sender, EventArgs e) {
+
+		}
+
+		private void productLookUpLine1_Paint(object sender, PaintEventArgs e) {
 
 		}
 	}
 }
+
